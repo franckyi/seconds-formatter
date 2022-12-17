@@ -8,12 +8,12 @@
     <title>Human readable Duration</title>
 </head>
 <body>
-    <h2>Human friendly format</h2>
-    <p>This utility converts seconds count to human a readable format.</p>
+    <h2>Readable format</h2>
+    <p>Convert the seconds count to human friendly format.</p>
     <form>
         <label for="seconds">Enter the seconds count</label>
-        <input type="number" id="seconds" name="seconds" placeholder="eg. 6000">
-        <button>convert</button>
+        <input id="inputSec" type="text" name="seconds" placeholder="eg. 6000">
+        <button onclick="getSec()" id="btnConvert" type="button">Convert</button>
     </form>
     <p id="js-result"></p>
 <script src="script.js">
