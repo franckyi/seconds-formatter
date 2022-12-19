@@ -50,43 +50,41 @@ function calculateSeconds() {
     Time.seconds <= 0 ? delete Time.seconds : Time.seconds == 1 ? Time.seconds += ' second' : Time.seconds += ' seconds';
 }
 
-function cleanResult() {
+function formatResult() {
     readableFormat = Object.values(Time).join(', ');
     const lastCommaIndex = readableFormat.lastIndexOf(', ');
     const lastValue = readableFormat.substring(lastCommaIndex, readableFormat.length).replace(/,/g, ' and ');
     readableFormat = readableFormat.substring(0,lastCommaIndex) + lastValue;
 }
 
-function formatDuration (a) {
+function convertToReadable(a) {
     Time.seconds = a;
     calculateYears();
     calculateDays();
     calculateHours();
     calculateMinutes();
     calculateSeconds();
-    cleanResult();
+    formatResult();
     return readableFormat;
 }
 
-let seconds = prompt('enter seconds count');
-// let seconds = input;
+function getInput() {
+    Time.seconds = input;
+    console.log('seconds = ' + Time.seconds);
+    console.log('input = ' + input);
+  }
 
-function getSec() {
-  seconds = input;
-  Time.seconds = input;
-  console.log('seconds = ' + seconds);
-  console.log('input = ' + input);
-}
-console.log(Time.seconds)
+// alternative using prompt
+// input = prompt('enter seconds count');
 
-// seconds
+Time.seconds
+input
+btn.addEventListener('click', getInput());
 
-btn.addEventListener('click', getSec);
-
-if (seconds == 0 || seconds == undefined) {
+if (input == 0 || input == undefined) {
     output.innerHTML = 'You entered 0 seconds';
 }
 else {
-    formatDuration(seconds);
+    convertToReadable(input);
     output.innerHTML = readableFormat;
 }
