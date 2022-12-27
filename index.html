@@ -31,13 +31,8 @@
     const MINUTE = 60;
     let readableFormat;
     let Time = {};
-    // let Time = {
-    // years: 0,
-    // days: 0,
-    // hours: 0,
-    // minutes: 0,
-    // seconds: 0,
-    // }
+
+    // Declaring all functions
 
     function calculateYears() {
         while (Time.seconds >= YEAR) {
@@ -101,15 +96,14 @@
         // Display user input for test
         let pre = document.querySelector('#test pre');
         pre.textContent = Time.seconds;
+        console.warn('added', {Time})
     }
-    
-    console.warn('added', {Time})
 
-    // console.log('count = ' + count);
+    // Start at document ready
 
     document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', getInput);
-    })
+    });
 
     if (input == 0 || input == undefined) {
         output.innerHTML = 'You entered 0 seconds';
