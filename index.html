@@ -22,7 +22,7 @@
 
 <script>
     
-    let input = document.getElementById('input').value;
+    // let input = document.getElementById('input').value;
     const output = document.getElementById('js-result');
     const btn = document.getElementById('btn');
     const YEAR = 31536000;
@@ -52,8 +52,8 @@
 
     function calculateHours() {
         while (Time.seconds >= HOUR) {
-        Time.hours = Math.floor(Time.seconds / HOUR);
-        Time.seconds -= (Time.hours * HOUR);
+            Time.hours = Math.floor(Time.seconds / HOUR);
+            Time.seconds -= (Time.hours * HOUR);
         }
         Time.hours <= 0 ? delete Time.hours : Time.hours == 1 ? Time.hours += ' hour' : Time.hours += ' hours';
     }
@@ -105,11 +105,11 @@
         btn.addEventListener('click', getInput);
     });
 
-    if (input == 0 || input == undefined) {
+    if (Time.seconds == 0 || Time.seconds == undefined) {
         output.innerHTML = 'You entered 0 seconds';
     }
     else {
-        convertToReadable(input);
+        convertToReadable(Time.seconds);
         output.innerHTML = readableFormat;
     }
 
