@@ -11,14 +11,18 @@
     <h2>Readable format</h2>
     <p>Convert the seconds count to human friendly format.</p>
     <form>
-        <label for="seconds">Enter the seconds count</label>
-        <input id="inputSeconds" type="number" placeholder="eg. 6000">
+        <label for="user input">Enter the seconds count</label>
+        <input id="input" type="number" placeholder="eg. 6000">
         <button id="btn">Convert</button>
     </form>
     <p id="js-result"></p>
+    <div id="test">
+        <pre></pre>
+    </div>
 
 <script>
-    let input = document.querySelector('input').value;
+    
+    let input = document.getElementById('input').value;
     const output = document.getElementById('js-result');
     const btn = document.getElementById('btn');
     const YEAR = 31536000;
@@ -26,13 +30,13 @@
     const HOUR = 3600;
     const MINUTE = 60;
     let readableFormat;
-    let Time = {
-    years: 0,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-    }
+    // let Time = {
+    // years: 0,
+    // days: 0,
+    // hours: 0,
+    // minutes: 0,
+    // seconds: 0,
+    // }
 
     function calculateYears() {
         while (Time.seconds >= YEAR) {
@@ -90,13 +94,20 @@
 
     function getInput(e) {
         e.preventDefault();
-        Time.seconds = input;
+        let Time = {
+            seconds: document.getElementById('input').value
+        }
+        document.forms[0].reset();
+        
+        // Display user input
+        let pre = document.querySelector('#test pre');
+        pre.textContent = Time.seconds;
+        console.warn('added', {Time})
+        console.log(input);
     }
 
     // alternative using prompt
     // input = prompt('enter seconds count');
-
-    // Time.seconds = input;
 
     document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', getInput);
