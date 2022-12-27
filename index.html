@@ -30,6 +30,7 @@
     const HOUR = 3600;
     const MINUTE = 60;
     let readableFormat;
+    let Time = {};
     // let Time = {
     // years: 0,
     // days: 0,
@@ -91,23 +92,20 @@
         formatResult();
         return readableFormat;
     }
-
+    
     function getInput(e) {
         e.preventDefault();
-        let Time = {
-            seconds: document.getElementById('input').value
-        }
+        Time.seconds = document.getElementById('input').value;
         document.forms[0].reset();
-        
-        // Display user input
+
+        // Display user input for test
         let pre = document.querySelector('#test pre');
         pre.textContent = Time.seconds;
-        console.warn('added', {Time})
-        console.log(input);
     }
+    
+    console.warn('added', {Time})
 
-    // alternative using prompt
-    // input = prompt('enter seconds count');
+    // console.log('count = ' + count);
 
     document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', getInput);
