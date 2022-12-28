@@ -90,7 +90,7 @@
     
     function getInput(e) {
         e.preventDefault();
-        Time.seconds = document.getElementById('input').value;
+        Time.seconds = Number(document.getElementById('input').value);
         document.forms[0].reset();
 
         // Display user input for test
@@ -98,20 +98,25 @@
         pre.textContent = Time.seconds;
         console.warn('added', {Time});
         console.log(`result = ${readableFormat}`);
+
+
+        if (Time.seconds == 0 || Time.seconds == undefined) {
+        output.innerHTML = 'You entered 0 seconds';
+        }
+    else {
+        convertToReadable(Time.seconds);
+        output.innerHTML = readableFormat;
     }
+
+    
+    }
+
+
 
     // Start at document ready
 
     document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', getInput);
-
-        if (input == 0 || input == undefined) {
-        output.innerHTML = 'You entered 0 seconds';
-        }
-        else {
-            convertToReadable(input);
-            output.innerHTML = readableFormat;
-        }
     });
 
 </script>
