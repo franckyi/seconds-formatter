@@ -102,12 +102,13 @@
 
         // Display user input for test
         let pre = document.querySelector('#test pre');
-        pre.textContent = `You entered ${Time.seconds} seconds`;
+        pre.textContent = `Based on last number you entered ${Time.seconds} seconds`;
         console.warn('added', {Time});
         console.log(`result = ${readableFormat}`);
 
-        if (Time.seconds == 0 || Time.seconds == undefined) {
+        if (Time.seconds <= 0 || Time.seconds == undefined) {
         output.innerHTML = 'You entered 0 seconds';
+        pre.textContent = 'Try again';
         }
         else {
             convertToReadable(Time.seconds);

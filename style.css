@@ -2,4 +2,27 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+input {
+  padding: 5px;
+}
+
+button {
+  background: bisque;
+  outline: none;
+  padding: 8px 25px;
+  border-radius: 3px;
+}
+
+#output {
+  font-weight: bold;
+  font-size: 20px;
+  color: blueviolet;
+}
+
+pre {
+  font-size: 14px;
+  font-style: italic;
+  color: darkblue;
+}
+
 /*# sourceMappingURL=style.css.map */
