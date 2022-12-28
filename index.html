@@ -99,15 +99,13 @@
         console.warn('added', {Time});
         console.log(`result = ${readableFormat}`);
 
-
         if (Time.seconds == 0 || Time.seconds == undefined) {
         output.innerHTML = 'You entered 0 seconds';
         }
-    else {
-        convertToReadable(Time.seconds);
-        output.innerHTML = readableFormat;
-    }
-
+        else {
+            convertToReadable(Time.seconds);
+            output.innerHTML = readableFormat;
+        }
     
     }
 
