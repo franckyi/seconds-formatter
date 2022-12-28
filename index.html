@@ -96,7 +96,8 @@
         // Display user input for test
         let pre = document.querySelector('#test pre');
         pre.textContent = Time.seconds;
-        console.warn('added', {Time})
+        console.warn('added', {Time});
+        console.log(`result = ${readableFormat}`);
     }
 
     // Start at document ready
