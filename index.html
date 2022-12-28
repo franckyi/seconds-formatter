@@ -15,15 +15,15 @@
         <input id="input" type="number" placeholder="eg. 6000">
         <button id="btn">Convert</button>
     </form>
-    <p id="js-result"></p>
+    <p id="output"></p>
     <div id="test">
         <pre></pre>
     </div>
 
 <script>
     
-    // let input = document.getElementById('input').value;
-    const output = document.getElementById('js-result');
+    const input = document.getElementById('input').value;
+    const output = document.getElementById('output');
     const btn = document.getElementById('btn');
     const YEAR = 31536000;
     const DAY = 86400;
@@ -103,15 +103,15 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', getInput);
-    });
 
-    if (Time.seconds == 0 || Time.seconds == undefined) {
+        if (input == 0 || input == undefined) {
         output.innerHTML = 'You entered 0 seconds';
-    }
-    else {
-        convertToReadable(Time.seconds);
-        output.innerHTML = readableFormat;
-    }
+        }
+        else {
+            convertToReadable(input);
+            output.innerHTML = readableFormat;
+        }
+    });
 
 </script>
 </body>
