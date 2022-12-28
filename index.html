@@ -30,7 +30,13 @@
     const HOUR = 3600;
     const MINUTE = 60;
     let readableFormat;
-    let Time = {};
+    let Time = {
+        years: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    }
 
     // Declaring all functions
 
@@ -39,7 +45,7 @@
             Time.years = Math.floor((Time.seconds / DAY) / 365);
             Time.seconds -= (Time.years * YEAR);
         }
-        Time.years <= 0 ? delete Time.years : Time.years == 1 ? Time.years += ' year' : Time.years += ' years';
+        (Time.years <= 0 || Time.years == undefined) ? delete Time.years : Time.years == 1 ? Time.years += ' year' : Time.years += ' years';
     }
 
     function calculateDays() {
@@ -47,7 +53,7 @@
             Time.days = Math.floor(Time.seconds / DAY);
             Time.seconds -= (Time.days * DAY);
         }
-        Time.days <= 0 ? delete Time.days : Time.days == 1 ? Time.days += ' day' : Time.days += ' days';
+        (Time.days <= 0 || Time.days == undefined) ? delete Time.days : Time.days == 1 ? Time.days += ' day' : Time.days += ' days';
     }
 
     function calculateHours() {
@@ -55,7 +61,7 @@
             Time.hours = Math.floor(Time.seconds / HOUR);
             Time.seconds -= (Time.hours * HOUR);
         }
-        Time.hours <= 0 ? delete Time.hours : Time.hours == 1 ? Time.hours += ' hour' : Time.hours += ' hours';
+        (Time.hours <= 0 || Time.hours == undefined) ? delete Time.hours : Time.hours == 1 ? Time.hours += ' hour' : Time.hours += ' hours';
     }
 
     function calculateMinutes() {
@@ -63,11 +69,11 @@
             Time.minutes = Math.floor(Time.seconds / MINUTE);
             Time.seconds -= (Time.minutes * MINUTE);
         }
-        Time.minutes <= 0 ? delete Time.minutes : Time.minutes == 1 ? Time.minutes += ' minute' : Time.minutes += ' minutes';
+        (Time.minutes <= 0 || Time.minutes == undefined) ? delete Time.minutes : Time.minutes == 1 ? Time.minutes += ' minute' : Time.minutes += ' minutes';
     }
 
     function calculateSeconds() {
-        Time.seconds <= 0 ? delete Time.seconds : Time.seconds == 1 ? Time.seconds += ' second' : Time.seconds += ' seconds';
+        (Time.seconds <= 0 || Time.seconds == undefined) ? delete Time.seconds : Time.seconds == 1 ? Time.seconds += ' second' : Time.seconds += ' seconds';
     }
 
     function formatResult() {
@@ -78,6 +84,7 @@
     }
 
     function convertToReadable(a) {
+        console.log(Time.seconds);
         Time.seconds = a;
         calculateYears();
         calculateDays();
@@ -95,7 +102,7 @@
 
         // Display user input for test
         let pre = document.querySelector('#test pre');
-        pre.textContent = `You entered: ${Time.seconds}`;
+        pre.textContent = `You entered ${Time.seconds} seconds`;
         console.warn('added', {Time});
         console.log(`result = ${readableFormat}`);
 
@@ -118,7 +125,6 @@
     }
 
     // Start at document ready
-
     document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', getInput);
     });
