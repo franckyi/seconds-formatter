@@ -1,16 +1,27 @@
 body {
+  background: #eee;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 input {
-  padding: 5px;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
 button {
-  background: bisque;
+  background: blueviolet;
+  color: white;
   outline: none;
   padding: 8px 25px;
+  border: none;
   border-radius: 3px;
+  cursor: pointer;
+}
+button:hover {
+  background: #673ab7;
 }
 
 #output {
