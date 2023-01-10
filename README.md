@@ -1,4 +1,5 @@
-[Live page] (https://franckyiside.eu/seconds-count/)
+[Live page](https://franckyiside.eu/seconds-count/)
+
 
 # How to
 
